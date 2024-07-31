@@ -4,13 +4,10 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import '@/styles/globals.css';
 import Image from 'next/image';
-import logo from '@/public/images/logo.png'
+import logo from '@/public/images/logo.png';
+import { FaHome, FaInfoCircle, FaShieldAlt, FaCogs } from 'react-icons/fa';
 
 const Navbar = () => {
-    const [isHomePopoutVisible, setIsHomePopoutVisible] = useState(false);
-    const [isAboutPopoutVisible, setIsAboutPopoutVisible] = useState(false);
-    const [isCareersPopoutVisible, setIsCareersPopoutVisible] = useState(false);
-    const [isContactPopoutVisible, setIsContactPopoutVisible] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [opacity, setOpacity] = useState(1);
     const [isMobileInteracted, setIsMobileInteracted] = useState(false);
@@ -49,74 +46,22 @@ const Navbar = () => {
         {
             name: 'Home',
             href: '/',
-            setPopout: setIsHomePopoutVisible,
-            popout: isHomePopoutVisible,
-            popoutText: `
-        <div class="flex">
-          <div class="max-w-max m-4">
-            <p class='p-2'><a href="/">Welcome to our homepage!</a></p>
-          </div>
-          <div class="h-full border-r border-black mx-4"></div>
-          <div class="max-w-max">
-            <p class="hover:bg-blue-100 rounded-lg max-w-max p-2"><a href="/#AboutUs">About Us</a></p>
-            <p class="hover:bg-blue-100 rounded-lg max-w-max p-2"><a href="/#Epigenics-Study">What is Epigenetics Study?</a></p>
-            <p class="hover:bg-blue-100 rounded-lg max-w-max p-2"><a href="/#Precision-Study">What is Precision Medicine Study?</a></p>
-          </div>
-        </div>
-      `
+            icon: <FaHome className="mr-2" />,
         },
         {
             name: 'About Us',
-            href: '/about',
-            setPopout: setIsAboutPopoutVisible,
-            popout: isAboutPopoutVisible,
-            popoutText: `
-        <div class="flex">
-          <div class="max-w-max m-4">
-            <p class='p-2'><a href="/about">Learn more about us.</a></p>
-          </div>
-          <div class="h-full border-r border-black mx-4"></div>
-          <div class="max-w-max">
-            <p class="hover:bg-blue-100 rounded-lg max-w-max p-2"><a href="/about/#vision-mission">Vision Mission</a></p>
-            <p class="hover:bg-blue-100 rounded-lg max-w-max p-2"><a href="/about/#AboutOurCompany">About Out Company</a></p>
-            <p class="hover:bg-blue-100 rounded-lg max-w-max p-2"><a href="/about/#Directors-Info">Directors Info?</a></p>
-          </div>
-        </div>
-      `,
+            href: '/#about',
+            icon: <FaInfoCircle className="mr-2" />,
         },
         {
-            name: 'Careers',
-            href: '/careers',
-            setPopout: setIsCareersPopoutVisible,
-            popout: isCareersPopoutVisible,
-            popoutText: `
-        <div class="flex">
-          <div class="max-w-max m-4">
-            <p class='p-2'><a href="/careers">Join our team.</a></p>
-          </div>
-          <div class="h-full border-r border-black mx-4"></div>
-          <div class="max-w-max m-4">
-            <p class="hover:bg-blue-100 rounded-lg p-2"><a href="/careers/#CareerForm">Apply/ Career Form</a></p>
-          </div>
-        </div>
-      `,
+            name: 'BSS',
+            href: '/#bss',
+            icon: <FaShieldAlt className="mr-2" />,
         },
         {
-            name: 'Contact',
-            href: '/contact',
-            setPopout: setIsContactPopoutVisible,
-            popout: isContactPopoutVisible,
-            popoutText: `
-        <div class="flex">
-          <div class="max-w-max m-4">
-            <p class='p-2'><a href="/careers">Get in touch with us.</a></p>
-          </div>
-          <div class="h-full border-r border-black mx-4"></div>
-          <div class="max-w-max m-4">
-            <p class="hover:bg-blue-100 rounded-lg p-2"><a href="/contact/#ContactForm">Contact Us</a></p>
-          </div>
-        </div>
-      `,
+            name: 'SSP',
+            href: '/#ssp',
+            icon: <FaCogs className="mr-2" />,
         },
     ];
 
@@ -132,37 +77,28 @@ const Navbar = () => {
                     <div className="flex items-center justify-between h-20">
                         <div className="flex items-center">
                             <div className="flex-shrink-0">
-                                <Image
-                                    src={logo}
-                                    width={200}
-                                    height={200}
-                                    alt='logo'
-                                />
+                                <Link href="/">
+                                    <Image
+                                        src={logo}
+                                        width={200}
+                                        height={200}
+                                        alt="logo"
+                                        className="cursor-pointer"
+                                    />
+                                </Link>
                             </div>
                             <div className="hidden md:block relative">
                                 <div className="ml-10 flex items-baseline space-x-4">
                                     {navItems.map((item) => (
-                                        <div
-                                            key={item.name}
-                                            className="relative group"
-                                            onMouseEnter={() => item.setPopout(true)}
-                                            onMouseLeave={() => item.setPopout(false)}
-                                        >
+                                        <div key={item.name} className="relative group flex items-center">
                                             <Link
                                                 href={item.href}
-                                                className="text-gray-700 hover:text-blue-500 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                                                className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center"
                                             >
+                                                {item.icon}
                                                 {item.name}
                                             </Link>
-                                            <span className="absolute -bottom-1 text-black left-0 w-0 h-0.5 bg-blue-500 transition-all duration-700 group-hover:w-full"></span>
-                                            {item.popout && (
-                                                <div className="absolute top-full mt-2 w-max text-black bg-white border border-gray-200 transition-all duration-700 rounded shadow-lg p-2">
-                                                    <p
-                                                        className="text-gray-700"
-                                                        dangerouslySetInnerHTML={{ __html: item.popoutText }}
-                                                    />
-                                                </div>
-                                            )}
+                                            <span className="absolute -bottom-1 text-black left-0 w-0 h-0.5 bg-gray-900 transition-all duration-700 group-hover:w-full"></span>
                                         </div>
                                     ))}
                                 </div>
@@ -193,9 +129,10 @@ const Navbar = () => {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-gray-700 hover:text-blue-500 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                                    className="text-gray-700 hover:text-blue-500 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex items-center"
                                     onClick={handleMobileMenuClose}
                                 >
+                                    <span className="mr-2">{item.icon}</span>
                                     {item.name}
                                 </Link>
                             ))}
@@ -203,7 +140,7 @@ const Navbar = () => {
                     </div>
                 )}
             </nav>
-            <div className="h-[12vh]"></div>
+            <div className="h-[10vh]"></div>
         </>
     );
 };

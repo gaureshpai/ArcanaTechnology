@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#about,
+#bss,
+#ssp{
+    padding-top: 20vh;
+    margin-top: -20vh;
+}
