@@ -7,7 +7,8 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Boder Security System"
+  title: "Boder Security System",
+  description:"Arcana Technology PVT LTD"
 };
 
 export default function RootLayout({
