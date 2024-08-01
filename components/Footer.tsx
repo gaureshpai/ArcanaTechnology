@@ -30,15 +30,15 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center">
                 <FaEnvelope className="mr-2" />
-                <a href="mailto:example@emf.com" className="hover:text-blue-400 transition duration-200">example@emf.com</a>
+                <a href="mailto:bangerakrishna7@gmail.com" className="hover:text-blue-400 transition duration-200">bangerakrishna7@gmail.com</a>
               </li>
               <li className="flex items-center">
                 <FaPhone className="mr-2" />
-                <a href="tel:+1234567890" className="hover:text-blue-400 transition duration-200">+1 234 567 890</a>
+                <a href="tel:9535891636" className="hover:text-blue-400 transition duration-200">9535891636</a>
               </li>
               <li className="flex items-center">
                 <FaMapMarkerAlt className="mr-2" />
-                <span>123 Medical St, Health City, HC 12345</span>
+                <span>Bantwal, Dakshina Kannada, Karnataka, India 574211</span>
               </li>
             </ul>
           </div>
