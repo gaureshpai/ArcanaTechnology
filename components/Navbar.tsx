@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import '@/styles/globals.css';
 import Image from 'next/image';
 import logo from '@/public/images/logo.png';
-import { FaHome, FaInfoCircle, FaShieldAlt, FaCogs } from 'react-icons/fa';
+import { FaHome, FaInfoCircle, FaShieldAlt, FaCogs, FaStore } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -63,6 +63,11 @@ const Navbar = () => {
             href: '/#ssp',
             icon: <FaCogs className="mr-2" />,
         },
+        {
+            name:'Store',
+            href: '/store',
+            icon: <FaStore className="mr-2" />,
+        }
     ];
 
     return (
