@@ -1,10 +1,10 @@
 # Welcome to Border Security System (BSS) 🚀
 
-<center>
+<div align="center">
 
 ![BSS Logo](public/images/logo-with-bg.png)
 
-</center>
+</div>
 
 The Border Security System (BSS) is an innovative project aimed at enhancing border security through modern technology. Discover our state-of-the-art solutions designed to provide advanced surveillance and security for critical areas.
 
