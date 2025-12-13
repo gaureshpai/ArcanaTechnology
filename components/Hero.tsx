@@ -8,10 +8,10 @@ const Hero = () => {
             <div className="relative mx-auto py-24 pr-4 sm:py-32 sm:px-6 lg:px-8 flex items-end h-[80vh]">
                 <div className="absolute bottom-8 left-0">
                     <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-                        Securing Borders, Empowering Nations
+                        EMPOWERING BORDERS AND PROTECTING NATIONS
                     </h1>
                     <p className="mt-6 max-w-3xl text-xl text-gray-300">
-                        Arcana Technology: Innovative solutions for modern border security challenges.
+                        Introducing BSS: A smart, cost-effective, solar-powered IoT surveillance system designed to modernize border security.
                     </p>
                 </div>
             </div>
